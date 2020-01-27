@@ -29,6 +29,7 @@ while True: # Main loop
             pygame.quit()
             sys.exit()
 
+    '''
     i = 0 # Reset Power
     for row in level:
         j = 0
@@ -36,115 +37,103 @@ while True: # Main loop
             level[i][j][2] = 0
             j = j + 1
         i = i + 1
-
-    while True: # Calculate Power
-
-        compare = level.copy()
-        
-        i = 0
-        for row in level: 
-            j = 0
-            for tile in row:
-                if tile[0] == 8: # Cube
-                    if level[i+1][j][0] == 6 and level[i+1][j][1] == 0:
-                        
-                        level[i+1][j][2] = 1
-                        finished = False
-
-                    if level[i][j-1][0] == 6 and level[i][j-1][1] == 1:
-                        
-                        level[i][j-1][2] = 1
-                        finished = False
-
-                    if level[i-1][j][0] == 6 and level[i-1][j][1] == 2:
-                        
-                        level[i-1][j][2] = 1
-                        finished = False
-
-                    if level[i][j+1][0] == 6 and level[i][j+1][1] == 3:
-                        
-                        level[i][j+1][2] = 1
-                        finished = False
-
-                if ( tile[0] == 3 or tile[0] == 6 or tile[0] == 4) and tile[2] == 1: # Powered Conduit, Powered Catcher and Powered Contact
-                    if level[i+1][j][0] == 3 or level[i+1][j][0] == 5 or level[i+1][j][0] == 6:
-                        
-                        level[i+1][j][2] = 1
-                        finished = False
-                        
-                    if level[i][j-1][0] == 3 or level[i][j-1][0] == 5 or level[i][j-1][0] == 6:
-                        
-                        level[i][j-1][2] = 1
-                        finished = False
-
-                    if level[i-1][j][0] == 3 or level[i-1][j][0] == 5 or level[i-1][j][0] == 6:
-                        
-                        level[i-1][j][2] = 1
-                        finished = False
-
-                    if level[i][j+1][0] == 3 or level[i][j+1][0] == 5 or level[i][j+1][0] == 6:
-                        
-                        level[i][j+1][2] = 1
-                        finished = False
-                print ("hello")
-                if tile[0] == 5 and tile[2] == 1: # Powered Emmiter
-
-                    print ("ok")
+    '''
+  
+    i = 0
+    for row in level: 
+        j = 0
+        for tile in row:
+            if tile[0] == 8: # Cube
+                if level[i+1][j][0] == 6 and level[i+1][j][1] == 0:
                     
-                    k = 0
-                    while True: # Shoot a beam until it hits something.
-                        k = k + 1
-                        if tile[1] == 0:
+                    level[i+1][j][2] = 1
+                    finished = False
 
-                            print ("okay")
-                            
-                            if level[i-1][j][0] == 0:
-                                level[i-1][j][2] = 1
-                            if level[i-1][j][0] == 4 and level[i-1][j][1] == 2:
-                                level[i-1][j][2] = 1
-                                finished = False
-                                break
-                            else:
-                                break
-                            
-                        if tile[1] == 1:
+                if level[i][j-1][0] == 6 and level[i][j-1][1] == 1:
+                    
+                    level[i][j-1][2] = 1
+                    finished = False
 
-                            if level[i][j+1][0] == 0:
-                                level[i][j+1][2] = 1
-                            if level[i][j+1][0] == 4 and level[i][j+1][1] == 3:
-                                level[i][j+1][2] = 1
-                                finished = False
-                                break
-                            else:
-                                break
-                            
-                        if tile[1] == 2:
+                if level[i-1][j][0] == 6 and level[i-1][j][1] == 2:
+                    
+                    level[i-1][j][2] = 1
+                    finished = False
 
-                            if level[i+1][j][0] == 0:
-                                level[i+1][j][2] = 1
-                            if level[i+1][j][0] == 4 and level[i+1][j][1] == 0:
-                                level[i+1][j][2] = 1
-                                finished = False
-                                break
-                            else:
-                                break
-                            
-                        if tile[1] == 3:
+                if level[i][j+1][0] == 6 and level[i][j+1][1] == 3:
+                    
+                    level[i][j+1][2] = 1
+                    finished = False
 
-                            if level[i][j-1][0] == 0:
-                                level[i][j-1][2] = 1
-                            if level[i][j-1][0] == 4 and level[i][j-1][1] == 1:
-                                level[i][j-1][2] = 1
-                                finished = False
-                                break
-                            else:
-                                break
+            if ( tile[0] == 3 or tile[0] == 6 or tile[0] == 4) and tile[2] == 1: # Powered Conduit, Powered Catcher and Powered Contact
+                if level[i+1][j][0] == 3 or level[i+1][j][0] == 5 or level[i+1][j][0] == 6:
+                    
+                    level[i+1][j][2] = 1
+                    finished = False
+                    
+                if level[i][j-1][0] == 3 or level[i][j-1][0] == 5 or level[i][j-1][0] == 6:
+                    
+                    level[i][j-1][2] = 1
+                    finished = False
+
+                if level[i-1][j][0] == 3 or level[i-1][j][0] == 5 or level[i-1][j][0] == 6:
+                    
+                    level[i-1][j][2] = 1
+                    finished = False
+
+                if level[i][j+1][0] == 3 or level[i][j+1][0] == 5 or level[i][j+1][0] == 6:
+                    
+                    level[i][j+1][2] = 1
+                    finished = False
+            if tile[0] == 5 and tile[2] == 1: # Powered Emmiter
+                
+                k = 0
+                while True: # Shoot a beam until it hits something.
+                    k = k + 1
+                    if tile[1] == 0:
+
+                        if level[i-k][j][0] == 0:
+                            level[i-k][j][2] = 1
+                        elif level[i-k][j][0] == 4 and level[i-k][j][1] == 2:
+                            level[i-k][j][2] = 1
+                            break
+                        else:
+                            break
+                       
+                    if tile[1] == 1:
+
+                        if level[i][j+k][0] == 0:
+                            level[i][j+k][2] = 1
+                        elif level[i][j+k][0] == 4 and level[i][j+k][1] == 3:
+                            level[i][j+k][2] = 1
+                            break
+                        else:
+                            break
+
                         
-                j = j + 1
-            i = i + 1
+                    if tile[1] == 2:
+
+                        if level[i+k][j][0] == 0:
+                            level[i+k][j][2] = 1
+                        elif level[i+k][j][0] == 4 and level[i+k][j][1] == 0:
+                            level[i+k][j][2] = 1
+                            break
+                        else:
+                            break
+                        
+                    if tile[1] == 3:
+
+                        if level[i][j-k][0] == 0:
+                            level[i][j-k][2] = 1
+                        elif level[i][j-k][0] == 4 and level[i][j-k][1] == 1:
+                            level[i][j-k][2] = 1
+                            break
+                        else:
+                            break
+                    
+                    
+            j = j + 1
+        i = i + 1
             
-        if compare == level:
-            break
 
 
     i = 0
